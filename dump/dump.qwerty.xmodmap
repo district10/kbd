@@ -1,147 +1,82 @@
-# kbd
-
-My Keyboard Configuration. [Fork me on GitHub](https://github.com/district10/kbd)
-
--   Online: <http://tangzhixiong.com/kbd>
--   gh-pages branch: <https://github.com/district10/kbd/tree/gh-pages>
-
----
-
-## XCAPE
-
-download: [xcape.tar](xcape.tar)
-
-```bash
-$ tar xf xcape.tar
-$ sudo apt-get install git gcc make pkg-config libx11-dev libxtst-dev libxi-dev
-$ make
-$ sudo make install                     # or `export PATH=/path/to/cur/dir:$PATH'
-```
-
-## Neo
-
-if have xcape, download [neo.xmodmap](neo.xmodmap)
-
-```bash
-xmodmap ./neo.xmodmap
-xcape -e "ISO_Group_Shift=space"
-```
-
-## Dvorak
-
-if don't have xcape, download [dvorak.xmodmap](dvorak.xmodmap)
-
-```bash
-xmodmap ./dvorak.xmodmap
-```
-
----
-
-## Usage of `xmodmap`
-
-man xmodmap:
-
-```
-NAME
-       xmodmap - utility for modifying keymaps and pointer button mappings in X
-
-SYNOPSIS
-       xmodmap [-options ...] [filename]
-
-DESCRIPTION
-       The  xmodmap  program  is used to edit and display the keyboard modifier
-       map and keymap table that are used by client applications to convert
-       event keycodes into keysyms.  It is usually run from the user's session
-       startup script to configure the keyboard according to personal tastes.
-
-       -pke    This  option  indicates  that  the  current keymap table should
-               be printed on the standard output in the form of expressions
-               that can be fed back to xmodmap.
-```
-
-```bash
-$ xmodmap -pke > dump.xmodmap
-$ xmodmap ./dump.xmodmap
-$ cat dump.xmodmap
 keycode   8 =
 keycode   9 = Escape NoSymbol Escape
-keycode  10 = 1 exclam space
-keycode  11 = 2 at colon
-keycode  12 = 3 numbersign exclam
-keycode  13 = 4 dollar Next
-keycode  14 = 5 percent Prior
-keycode  15 = 6 asciicircum Multi_key
-keycode  16 = 7 ampersand 2
-keycode  17 = 8 asterisk 0
-keycode  18 = 9 Caps_Lock 1
+keycode  10 = 1 exclam 1 exclam
+keycode  11 = 2 at 2 at
+keycode  12 = 3 numbersign 3 numbersign
+keycode  13 = 4 dollar 4 dollar
+keycode  14 = 5 percent 5 percent
+keycode  15 = 6 asciicircum 6 asciicircum
+keycode  16 = 7 ampersand 7 ampersand
+keycode  17 = 8 asterisk 8 asterisk
+keycode  18 = 9 parenleft 9 parenleft
 keycode  19 = 0 parenright 0 parenright
-keycode  20 = space Caps_Lock 1
+keycode  20 = minus underscore minus underscore
 keycode  21 = equal plus equal plus
 keycode  22 = BackSpace BackSpace BackSpace BackSpace
-keycode  23 = Super_L Super_L Super_L
-keycode  24 = semicolon colon Insert
-keycode  25 = comma less quotedbl
-keycode  26 = period greater Up
-keycode  27 = k K bracketright
-keycode  28 = y Y F2
-keycode  29 = f F F11
-keycode  30 = g G bracketleft
-keycode  31 = c C parenright
-keycode  32 = l L parenleft
-keycode  33 = z Z asciitilde
+keycode  23 = Tab ISO_Left_Tab Tab ISO_Left_Tab
+keycode  24 = q Q q Q
+keycode  25 = w W w W
+keycode  26 = e E e E
+keycode  27 = r R r R
+keycode  28 = t T t T
+keycode  29 = y Y y Y
+keycode  30 = u U u U
+keycode  31 = i I i I
+keycode  32 = o O o O
+keycode  33 = p P p P
 keycode  34 = bracketleft braceleft bracketleft braceleft
 keycode  35 = bracketright braceright bracketright braceright
-keycode  36 = Return Shift_Lock Control_L
-keycode  37 = Control_L Control_L Control_L
-keycode  38 = a A Home
-keycode  39 = o O Left
-keycode  40 = e E Down
-keycode  41 = i I Right
-keycode  42 = u U End
-keycode  43 = d D Delete
-keycode  44 = r R Return
-keycode  45 = t T Tab
-keycode  46 = s S Escape
-keycode  47 = n N bar
-keycode  48 = Control_R Control_R Control_R
+keycode  36 = Return NoSymbol Return
+keycode  37 = Control_L NoSymbol Control_L
+keycode  38 = a A a A
+keycode  39 = s S s S
+keycode  40 = d D d D
+keycode  41 = f F f F
+keycode  42 = g G g G
+keycode  43 = h H h H
+keycode  44 = j J j J
+keycode  45 = k K k K
+keycode  46 = l L l L
+keycode  47 = semicolon colon semicolon colon
+keycode  48 = apostrophe quotedbl apostrophe quotedbl
 keycode  49 = grave asciitilde grave asciitilde
 keycode  50 = Shift_L NoSymbol Shift_L
 keycode  51 = backslash bar backslash bar
-keycode  52 = p P apostrophe
-keycode  53 = q Q braceleft
-keycode  54 = j J minus
-keycode  55 = h H underscore
-keycode  56 = x X braceright
-keycode  57 = b B BackSpace
-keycode  58 = m M equal
-keycode  59 = w W plus
-keycode  60 = v V grave
-keycode  61 = slash question backslash
+keycode  52 = z Z z Z
+keycode  53 = x X x X
+keycode  54 = c C c C
+keycode  55 = v V v V
+keycode  56 = b B b B
+keycode  57 = n N n N
+keycode  58 = m M m M
+keycode  59 = comma less comma less
+keycode  60 = period greater period greater
+keycode  61 = slash question slash question
 keycode  62 = Shift_R NoSymbol Shift_R
-keycode  63 = KP_Multiply KP_Multiply KP_Multiply KP_Multiply KP_Multiply KP_Multiply XF86ClearGrab KP_Multiply KP_Multiply XF86ClearGrab
+keycode  63 = KP_Multiply KP_Multiply KP_Multiply KP_Multiply KP_Multiply KP_Multiply XF86ClearGrab
 keycode  64 = Alt_L Meta_L Alt_L Meta_L
-keycode  65 = Mode_switch Mode_switch ISO_First_Group
-keycode  66 = Control_L Control_L Control_L
-keycode  67 = F1 F1 F1 F1 F1 F1 XF86Switch_VT_1 F1 F1 XF86Switch_VT_1
-keycode  68 = F2 F2 F2 F2 F2 F2 XF86Switch_VT_2 F2 F2 XF86Switch_VT_2
-keycode  69 = F3 F3 F3 F3 F3 F3 XF86Switch_VT_3 F3 F3 XF86Switch_VT_3
-keycode  70 = F4 F4 F4 F4 F4 F4 XF86Switch_VT_4 F4 F4 XF86Switch_VT_4
-keycode  71 = F5 F5 F5 F5 F5 F5 XF86Switch_VT_5 F5 F5 XF86Switch_VT_5
-keycode  72 = F6 F6 F6 F6 F6 F6 XF86Switch_VT_6 F6 F6 XF86Switch_VT_6
-keycode  73 = F7 F7 F7 F7 F7 F7 XF86Switch_VT_7 F7 F7 XF86Switch_VT_7
-keycode  74 = F8 F8 F8 F8 F8 F8 XF86Switch_VT_8 F8 F8 XF86Switch_VT_8
-keycode  75 = F9 F9 F9 F9 F9 F9 XF86Switch_VT_9 F9 F9 XF86Switch_VT_9
-keycode  76 = F10 F10 F10 F10 F10 F10 XF86Switch_VT_10 F10 F10 XF86Switch_VT_10
+keycode  65 = space NoSymbol space
+keycode  66 = Caps_Lock NoSymbol Caps_Lock
+keycode  67 = F1 F1 F1 F1 F1 F1 XF86Switch_VT_1
+keycode  68 = F2 F2 F2 F2 F2 F2 XF86Switch_VT_2
+keycode  69 = F3 F3 F3 F3 F3 F3 XF86Switch_VT_3
+keycode  70 = F4 F4 F4 F4 F4 F4 XF86Switch_VT_4
+keycode  71 = F5 F5 F5 F5 F5 F5 XF86Switch_VT_5
+keycode  72 = F6 F6 F6 F6 F6 F6 XF86Switch_VT_6
+keycode  73 = F7 F7 F7 F7 F7 F7 XF86Switch_VT_7
+keycode  74 = F8 F8 F8 F8 F8 F8 XF86Switch_VT_8
+keycode  75 = F9 F9 F9 F9 F9 F9 XF86Switch_VT_9
+keycode  76 = F10 F10 F10 F10 F10 F10 XF86Switch_VT_10
 keycode  77 = Num_Lock NoSymbol Num_Lock
 keycode  78 = Scroll_Lock NoSymbol Scroll_Lock
 keycode  79 = KP_Home KP_7 KP_Home KP_7
 keycode  80 = KP_Up KP_8 KP_Up KP_8
 keycode  81 = KP_Prior KP_9 KP_Prior KP_9
-keycode  82 = KP_Subtract KP_Subtract KP_Subtract KP_Subtract KP_Subtract KP_Subtract XF86Prev_VMode KP_Subtract KP_Subtract XF86Prev_VMode
+keycode  82 = KP_Subtract KP_Subtract KP_Subtract KP_Subtract KP_Subtract KP_Subtract XF86Prev_VMode
 keycode  83 = KP_Left KP_4 KP_Left KP_4
 keycode  84 = KP_Begin KP_5 KP_Begin KP_5
 keycode  85 = KP_Right KP_6 KP_Right KP_6
-keycode  86 = KP_Add KP_Add KP_Add KP_Add KP_Add KP_Add XF86Next_VMode KP_Add KP_Add XF86Next_VMode
+keycode  86 = KP_Add KP_Add KP_Add KP_Add KP_Add KP_Add XF86Next_VMode
 keycode  87 = KP_End KP_1 KP_End KP_1
 keycode  88 = KP_Down KP_2 KP_Down KP_2
 keycode  89 = KP_Next KP_3 KP_Next KP_3
@@ -149,9 +84,9 @@ keycode  90 = KP_Insert KP_0 KP_Insert KP_0
 keycode  91 = KP_Delete KP_Decimal KP_Delete KP_Decimal
 keycode  92 = ISO_Level3_Shift NoSymbol ISO_Level3_Shift
 keycode  93 =
-keycode  94 = less greater less greater bar brokenbar bar brokenbar
-keycode  95 = F11 F11 F11 F11 F11 F11 XF86Switch_VT_11 F11 F11 XF86Switch_VT_11
-keycode  96 = F12 F12 F12 F12 F12 F12 XF86Switch_VT_12 F12 F12 XF86Switch_VT_12
+keycode  94 = less greater less greater bar brokenbar bar
+keycode  95 = F11 F11 F11 F11 F11 F11 XF86Switch_VT_11
+keycode  96 = F12 F12 F12 F12 F12 F12 XF86Switch_VT_12
 keycode  97 =
 keycode  98 = Katakana NoSymbol Katakana
 keycode  99 = Hiragana NoSymbol Hiragana
@@ -161,7 +96,7 @@ keycode 102 = Muhenkan NoSymbol Muhenkan
 keycode 103 =
 keycode 104 = KP_Enter NoSymbol KP_Enter
 keycode 105 = Control_R NoSymbol Control_R
-keycode 106 = KP_Divide KP_Divide KP_Divide KP_Divide KP_Divide KP_Divide XF86Ungrab KP_Divide KP_Divide XF86Ungrab
+keycode 106 = KP_Divide KP_Divide KP_Divide KP_Divide KP_Divide KP_Divide XF86Ungrab
 keycode 107 = Print Sys_Req Print Sys_Req
 keycode 108 = Alt_R Meta_R Alt_R Meta_R
 keycode 109 = Linefeed NoSymbol Linefeed
@@ -311,16 +246,3 @@ keycode 252 =
 keycode 253 =
 keycode 254 =
 keycode 255 =
-```
-
-add to your `.profile`:
-
-```bash
-( pgrep xcape || cd /home/tzx/git/neo_keyboard_layout/neo2015 && ./neo.sh; )
-```
-
----
-
-Credits
-
--   [district10/neo_keyboard_layout: 我的键盘布局。Neo keyboard layout variants, for Qwerty, Dvorak, Programmer Dvorak users. English ! Not German, and without greek letters.](https://github.com/district10/neo_keyboard_layout)

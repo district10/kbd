@@ -1,16 +1,296 @@
 <h1 id="kbd">kbd</h1>
-<p>My Keyboard Configuration.</p>
+<p>My Keyboard Configuration. <a href="https://github.com/district10/kbd">Fork me on GitHub</a></p>
 <ul>
 <li>Online: <a href="http://tangzhixiong.com/kbd" class="uri">http://tangzhixiong.com/kbd</a></li>
 <li>gh-pages branch: <a href="https://github.com/district10/kbd/tree/gh-pages" class="uri">https://github.com/district10/kbd/tree/gh-pages</a></li>
 </ul>
 <hr />
 <h2 id="xcape">XCAPE</h2>
-<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">TODO</span>, untar, make, install</code></pre></div>
+<p>download: <a href="xcape.tar" class="uri">xcape.tar</a></p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">tar</span> xf xcape.tar
+$ <span class="kw">sudo</span> apt-get install git gcc make pkg-config libx11-dev libxtst-dev libxi-dev
+$ <span class="kw">make</span>
+$ <span class="kw">sudo</span> make install                     <span class="co"># or `export PATH=/path/to/cur/dir:$PATH&#39;</span></code></pre></div>
 <h2 id="neo">Neo</h2>
-<p>(if have xcape)</p>
+<p>if have xcape, download <a href="neo.xmodmap" class="uri">neo.xmodmap</a></p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">xmodmap</span> ./neo.xmodmap
 <span class="kw">xcape</span> -e <span class="st">&quot;ISO_Group_Shift=space&quot;</span></code></pre></div>
 <h2 id="dvorak">Dvorak</h2>
-<p>(if don't have xcape)</p>
+<p>if don't have xcape, download <a href="dvorak.xmodmap" class="uri">dvorak.xmodmap</a></p>
 <div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">xmodmap</span> ./dvorak.xmodmap</code></pre></div>
+<hr />
+<h2 id="usage-of-xmodmap">Usage of <code>xmodmap</code></h2>
+<p>man xmodmap:</p>
+<pre><code>NAME
+       xmodmap - utility for modifying keymaps and pointer button mappings in X
+
+SYNOPSIS
+       xmodmap [-options ...] [filename]
+
+DESCRIPTION
+       The  xmodmap  program  is used to edit and display the keyboard modifier
+       map and keymap table that are used by client applications to convert
+       event keycodes into keysyms.  It is usually run from the user&#39;s session
+       startup script to configure the keyboard according to personal tastes.
+
+       -pke    This  option  indicates  that  the  current keymap table should
+               be printed on the standard output in the form of expressions
+               that can be fed back to xmodmap.</code></pre>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash">$ <span class="kw">xmodmap</span> -pke <span class="kw">&gt;</span> dump.xmodmap
+$ <span class="kw">xmodmap</span> ./dump.xmodmap
+$ <span class="kw">cat</span> dump.xmodmap
+<span class="kw">keycode</span>   8 =
+<span class="kw">keycode</span>   9 = Escape NoSymbol Escape
+<span class="kw">keycode</span>  10 = 1 exclam space
+<span class="kw">keycode</span>  11 = 2 at colon
+<span class="kw">keycode</span>  12 = 3 numbersign exclam
+<span class="kw">keycode</span>  13 = 4 dollar Next
+<span class="kw">keycode</span>  14 = 5 percent Prior
+<span class="kw">keycode</span>  15 = 6 asciicircum Multi_key
+<span class="kw">keycode</span>  16 = 7 ampersand 2
+<span class="kw">keycode</span>  17 = 8 asterisk 0
+<span class="kw">keycode</span>  18 = 9 Caps_Lock 1
+<span class="kw">keycode</span>  19 = 0 parenright 0 parenright
+<span class="kw">keycode</span>  20 = space Caps_Lock 1
+<span class="kw">keycode</span>  21 = equal plus equal plus
+<span class="kw">keycode</span>  22 = BackSpace BackSpace BackSpace BackSpace
+<span class="kw">keycode</span>  23 = Super_L Super_L Super_L
+<span class="kw">keycode</span>  24 = semicolon colon Insert
+<span class="kw">keycode</span>  25 = comma less quotedbl
+<span class="kw">keycode</span>  26 = period greater Up
+<span class="kw">keycode</span>  27 = k K bracketright
+<span class="kw">keycode</span>  28 = y Y F2
+<span class="kw">keycode</span>  29 = f F F11
+<span class="kw">keycode</span>  30 = g G bracketleft
+<span class="kw">keycode</span>  31 = c C parenright
+<span class="kw">keycode</span>  32 = l L parenleft
+<span class="kw">keycode</span>  33 = z Z asciitilde
+<span class="kw">keycode</span>  34 = bracketleft braceleft bracketleft braceleft
+<span class="kw">keycode</span>  35 = bracketright braceright bracketright braceright
+<span class="kw">keycode</span>  36 = Return Shift_Lock Control_L
+<span class="kw">keycode</span>  37 = Control_L Control_L Control_L
+<span class="kw">keycode</span>  38 = a A Home
+<span class="kw">keycode</span>  39 = o O Left
+<span class="kw">keycode</span>  40 = e E Down
+<span class="kw">keycode</span>  41 = i I Right
+<span class="kw">keycode</span>  42 = u U End
+<span class="kw">keycode</span>  43 = d D Delete
+<span class="kw">keycode</span>  44 = r R Return
+<span class="kw">keycode</span>  45 = t T Tab
+<span class="kw">keycode</span>  46 = s S Escape
+<span class="kw">keycode</span>  47 = n N bar
+<span class="kw">keycode</span>  48 = Control_R Control_R Control_R
+<span class="kw">keycode</span>  49 = grave asciitilde grave asciitilde
+<span class="kw">keycode</span>  50 = Shift_L NoSymbol Shift_L
+<span class="kw">keycode</span>  51 = backslash bar backslash bar
+<span class="kw">keycode</span>  52 = p P apostrophe
+<span class="kw">keycode</span>  53 = q Q braceleft
+<span class="kw">keycode</span>  54 = j J minus
+<span class="kw">keycode</span>  55 = h H underscore
+<span class="kw">keycode</span>  56 = x X braceright
+<span class="kw">keycode</span>  57 = b B BackSpace
+<span class="kw">keycode</span>  58 = m M equal
+<span class="kw">keycode</span>  59 = w W plus
+<span class="kw">keycode</span>  60 = v V grave
+<span class="kw">keycode</span>  61 = slash question backslash
+<span class="kw">keycode</span>  62 = Shift_R NoSymbol Shift_R
+<span class="kw">keycode</span>  63 = KP_Multiply KP_Multiply KP_Multiply KP_Multiply KP_Multiply KP_Multiply XF86ClearGrab KP_Multiply KP_Multiply XF86ClearGrab
+<span class="kw">keycode</span>  64 = Alt_L Meta_L Alt_L Meta_L
+<span class="kw">keycode</span>  65 = Mode_switch Mode_switch ISO_First_Group
+<span class="kw">keycode</span>  66 = Control_L Control_L Control_L
+<span class="kw">keycode</span>  67 = F1 F1 F1 F1 F1 F1 XF86Switch_VT_1 F1 F1 XF86Switch_VT_1
+<span class="kw">keycode</span>  68 = F2 F2 F2 F2 F2 F2 XF86Switch_VT_2 F2 F2 XF86Switch_VT_2
+<span class="kw">keycode</span>  69 = F3 F3 F3 F3 F3 F3 XF86Switch_VT_3 F3 F3 XF86Switch_VT_3
+<span class="kw">keycode</span>  70 = F4 F4 F4 F4 F4 F4 XF86Switch_VT_4 F4 F4 XF86Switch_VT_4
+<span class="kw">keycode</span>  71 = F5 F5 F5 F5 F5 F5 XF86Switch_VT_5 F5 F5 XF86Switch_VT_5
+<span class="kw">keycode</span>  72 = F6 F6 F6 F6 F6 F6 XF86Switch_VT_6 F6 F6 XF86Switch_VT_6
+<span class="kw">keycode</span>  73 = F7 F7 F7 F7 F7 F7 XF86Switch_VT_7 F7 F7 XF86Switch_VT_7
+<span class="kw">keycode</span>  74 = F8 F8 F8 F8 F8 F8 XF86Switch_VT_8 F8 F8 XF86Switch_VT_8
+<span class="kw">keycode</span>  75 = F9 F9 F9 F9 F9 F9 XF86Switch_VT_9 F9 F9 XF86Switch_VT_9
+<span class="kw">keycode</span>  76 = F10 F10 F10 F10 F10 F10 XF86Switch_VT_10 F10 F10 XF86Switch_VT_10
+<span class="kw">keycode</span>  77 = Num_Lock NoSymbol Num_Lock
+<span class="kw">keycode</span>  78 = Scroll_Lock NoSymbol Scroll_Lock
+<span class="kw">keycode</span>  79 = KP_Home KP_7 KP_Home KP_7
+<span class="kw">keycode</span>  80 = KP_Up KP_8 KP_Up KP_8
+<span class="kw">keycode</span>  81 = KP_Prior KP_9 KP_Prior KP_9
+<span class="kw">keycode</span>  82 = KP_Subtract KP_Subtract KP_Subtract KP_Subtract KP_Subtract KP_Subtract XF86Prev_VMode KP_Subtract KP_Subtract XF86Prev_VMode
+<span class="kw">keycode</span>  83 = KP_Left KP_4 KP_Left KP_4
+<span class="kw">keycode</span>  84 = KP_Begin KP_5 KP_Begin KP_5
+<span class="kw">keycode</span>  85 = KP_Right KP_6 KP_Right KP_6
+<span class="kw">keycode</span>  86 = KP_Add KP_Add KP_Add KP_Add KP_Add KP_Add XF86Next_VMode KP_Add KP_Add XF86Next_VMode
+<span class="kw">keycode</span>  87 = KP_End KP_1 KP_End KP_1
+<span class="kw">keycode</span>  88 = KP_Down KP_2 KP_Down KP_2
+<span class="kw">keycode</span>  89 = KP_Next KP_3 KP_Next KP_3
+<span class="kw">keycode</span>  90 = KP_Insert KP_0 KP_Insert KP_0
+<span class="kw">keycode</span>  91 = KP_Delete KP_Decimal KP_Delete KP_Decimal
+<span class="kw">keycode</span>  92 = ISO_Level3_Shift NoSymbol ISO_Level3_Shift
+<span class="kw">keycode</span>  93 =
+<span class="kw">keycode</span>  94 = less greater less greater bar brokenbar bar brokenbar
+<span class="kw">keycode</span>  95 = F11 F11 F11 F11 F11 F11 XF86Switch_VT_11 F11 F11 XF86Switch_VT_11
+<span class="kw">keycode</span>  96 = F12 F12 F12 F12 F12 F12 XF86Switch_VT_12 F12 F12 XF86Switch_VT_12
+<span class="kw">keycode</span>  97 =
+<span class="kw">keycode</span>  98 = Katakana NoSymbol Katakana
+<span class="kw">keycode</span>  99 = Hiragana NoSymbol Hiragana
+<span class="kw">keycode</span> 100 = Henkan_Mode NoSymbol Henkan_Mode
+<span class="kw">keycode</span> 101 = Hiragana_Katakana NoSymbol Hiragana_Katakana
+<span class="kw">keycode</span> 102 = Muhenkan NoSymbol Muhenkan
+<span class="kw">keycode</span> 103 =
+<span class="kw">keycode</span> 104 = KP_Enter NoSymbol KP_Enter
+<span class="kw">keycode</span> 105 = Control_R NoSymbol Control_R
+<span class="kw">keycode</span> 106 = KP_Divide KP_Divide KP_Divide KP_Divide KP_Divide KP_Divide XF86Ungrab KP_Divide KP_Divide XF86Ungrab
+<span class="kw">keycode</span> 107 = Print Sys_Req Print Sys_Req
+<span class="kw">keycode</span> 108 = Alt_R Meta_R Alt_R Meta_R
+<span class="kw">keycode</span> 109 = Linefeed NoSymbol Linefeed
+<span class="kw">keycode</span> 110 = Home NoSymbol Home
+<span class="kw">keycode</span> 111 = Up NoSymbol Up
+<span class="kw">keycode</span> 112 = Prior NoSymbol Prior
+<span class="kw">keycode</span> 113 = Left NoSymbol Left
+<span class="kw">keycode</span> 114 = Right NoSymbol Right
+<span class="kw">keycode</span> 115 = End NoSymbol End
+<span class="kw">keycode</span> 116 = Down NoSymbol Down
+<span class="kw">keycode</span> 117 = Next NoSymbol Next
+<span class="kw">keycode</span> 118 = Insert NoSymbol Insert
+<span class="kw">keycode</span> 119 = Delete NoSymbol Delete
+<span class="kw">keycode</span> 120 =
+<span class="kw">keycode</span> 121 = XF86AudioMute NoSymbol XF86AudioMute
+<span class="kw">keycode</span> 122 = XF86AudioLowerVolume NoSymbol XF86AudioLowerVolume
+<span class="kw">keycode</span> 123 = XF86AudioRaiseVolume NoSymbol XF86AudioRaiseVolume
+<span class="kw">keycode</span> 124 = XF86PowerOff NoSymbol XF86PowerOff
+<span class="kw">keycode</span> 125 = KP_Equal NoSymbol KP_Equal
+<span class="kw">keycode</span> 126 = plusminus NoSymbol plusminus
+<span class="kw">keycode</span> 127 = Pause Break Pause Break
+<span class="kw">keycode</span> 128 = XF86LaunchA NoSymbol XF86LaunchA
+<span class="kw">keycode</span> 129 = KP_Decimal KP_Decimal KP_Decimal KP_Decimal
+<span class="kw">keycode</span> 130 = Hangul NoSymbol Hangul
+<span class="kw">keycode</span> 131 = Hangul_Hanja NoSymbol Hangul_Hanja
+<span class="kw">keycode</span> 132 =
+<span class="kw">keycode</span> 133 = Super_L NoSymbol Super_L
+<span class="kw">keycode</span> 134 = Super_R NoSymbol Super_R
+<span class="kw">keycode</span> 135 = Menu NoSymbol Menu
+<span class="kw">keycode</span> 136 = Cancel NoSymbol Cancel
+<span class="kw">keycode</span> 137 = Redo NoSymbol Redo
+<span class="kw">keycode</span> 138 = SunProps NoSymbol SunProps
+<span class="kw">keycode</span> 139 = Undo NoSymbol Undo
+<span class="kw">keycode</span> 140 = SunFront NoSymbol SunFront
+<span class="kw">keycode</span> 141 = XF86Copy NoSymbol XF86Copy
+<span class="kw">keycode</span> 142 = XF86Open NoSymbol XF86Open
+<span class="kw">keycode</span> 143 = XF86Paste NoSymbol XF86Paste
+<span class="kw">keycode</span> 144 = Find NoSymbol Find
+<span class="kw">keycode</span> 145 = XF86Cut NoSymbol XF86Cut
+<span class="kw">keycode</span> 146 = Help NoSymbol Help
+<span class="kw">keycode</span> 147 = XF86MenuKB NoSymbol XF86MenuKB
+<span class="kw">keycode</span> 148 = XF86Calculator NoSymbol XF86Calculator
+<span class="kw">keycode</span> 149 =
+<span class="kw">keycode</span> 150 = XF86Sleep NoSymbol XF86Sleep
+<span class="kw">keycode</span> 151 = XF86WakeUp NoSymbol XF86WakeUp
+<span class="kw">keycode</span> 152 = XF86Explorer NoSymbol XF86Explorer
+<span class="kw">keycode</span> 153 = XF86Send NoSymbol XF86Send
+<span class="kw">keycode</span> 154 =
+<span class="kw">keycode</span> 155 = XF86Xfer NoSymbol XF86Xfer
+<span class="kw">keycode</span> 156 = XF86Launch1 NoSymbol XF86Launch1
+<span class="kw">keycode</span> 157 = XF86Launch2 NoSymbol XF86Launch2
+<span class="kw">keycode</span> 158 = XF86WWW NoSymbol XF86WWW
+<span class="kw">keycode</span> 159 = XF86DOS NoSymbol XF86DOS
+<span class="kw">keycode</span> 160 = XF86ScreenSaver NoSymbol XF86ScreenSaver
+<span class="kw">keycode</span> 161 =
+<span class="kw">keycode</span> 162 = XF86RotateWindows NoSymbol XF86RotateWindows
+<span class="kw">keycode</span> 163 = XF86Mail NoSymbol XF86Mail
+<span class="kw">keycode</span> 164 = XF86Favorites NoSymbol XF86Favorites
+<span class="kw">keycode</span> 165 = XF86MyComputer NoSymbol XF86MyComputer
+<span class="kw">keycode</span> 166 = XF86Back NoSymbol XF86Back
+<span class="kw">keycode</span> 167 = XF86Forward NoSymbol XF86Forward
+<span class="kw">keycode</span> 168 =
+<span class="kw">keycode</span> 169 = XF86Eject NoSymbol XF86Eject
+<span class="kw">keycode</span> 170 = XF86Eject XF86Eject XF86Eject XF86Eject
+<span class="kw">keycode</span> 171 = XF86AudioNext NoSymbol XF86AudioNext
+<span class="kw">keycode</span> 172 = XF86AudioPlay XF86AudioPause XF86AudioPlay XF86AudioPause
+<span class="kw">keycode</span> 173 = XF86AudioPrev NoSymbol XF86AudioPrev
+<span class="kw">keycode</span> 174 = XF86AudioStop XF86Eject XF86AudioStop XF86Eject
+<span class="kw">keycode</span> 175 = XF86AudioRecord NoSymbol XF86AudioRecord
+<span class="kw">keycode</span> 176 = XF86AudioRewind NoSymbol XF86AudioRewind
+<span class="kw">keycode</span> 177 = XF86Phone NoSymbol XF86Phone
+<span class="kw">keycode</span> 178 =
+<span class="kw">keycode</span> 179 = XF86Tools NoSymbol XF86Tools
+<span class="kw">keycode</span> 180 = XF86HomePage NoSymbol XF86HomePage
+<span class="kw">keycode</span> 181 = XF86Reload NoSymbol XF86Reload
+<span class="kw">keycode</span> 182 = XF86Close NoSymbol XF86Close
+<span class="kw">keycode</span> 183 =
+<span class="kw">keycode</span> 184 =
+<span class="kw">keycode</span> 185 = XF86ScrollUp NoSymbol XF86ScrollUp
+<span class="kw">keycode</span> 186 = XF86ScrollDown NoSymbol XF86ScrollDown
+<span class="kw">keycode</span> 187 = parenleft NoSymbol parenleft
+<span class="kw">keycode</span> 188 = parenright NoSymbol parenright
+<span class="kw">keycode</span> 189 = XF86New NoSymbol XF86New
+<span class="kw">keycode</span> 190 = Redo NoSymbol Redo
+<span class="kw">keycode</span> 191 = XF86Tools NoSymbol XF86Tools
+<span class="kw">keycode</span> 192 = XF86Launch5 NoSymbol XF86Launch5
+<span class="kw">keycode</span> 193 = XF86Launch6 NoSymbol XF86Launch6
+<span class="kw">keycode</span> 194 = XF86Launch7 NoSymbol XF86Launch7
+<span class="kw">keycode</span> 195 = XF86Launch8 NoSymbol XF86Launch8
+<span class="kw">keycode</span> 196 = XF86Launch9 NoSymbol XF86Launch9
+<span class="kw">keycode</span> 197 =
+<span class="kw">keycode</span> 198 = XF86AudioMicMute NoSymbol XF86AudioMicMute
+<span class="kw">keycode</span> 199 = XF86TouchpadToggle NoSymbol XF86TouchpadToggle
+<span class="kw">keycode</span> 200 = XF86TouchpadOn NoSymbol XF86TouchpadOn
+<span class="kw">keycode</span> 201 = XF86TouchpadOff NoSymbol XF86TouchpadOff
+<span class="kw">keycode</span> 202 =
+<span class="kw">keycode</span> 203 = Mode_switch NoSymbol Mode_switch
+<span class="kw">keycode</span> 204 = NoSymbol Alt_L NoSymbol Alt_L
+<span class="kw">keycode</span> 205 = NoSymbol Meta_L NoSymbol Meta_L
+<span class="kw">keycode</span> 206 = NoSymbol Super_L NoSymbol Super_L
+<span class="kw">keycode</span> 207 = NoSymbol Hyper_L NoSymbol Hyper_L
+<span class="kw">keycode</span> 208 = XF86AudioPlay NoSymbol XF86AudioPlay
+<span class="kw">keycode</span> 209 = XF86AudioPause NoSymbol XF86AudioPause
+<span class="kw">keycode</span> 210 = XF86Launch3 NoSymbol XF86Launch3
+<span class="kw">keycode</span> 211 = XF86Launch4 NoSymbol XF86Launch4
+<span class="kw">keycode</span> 212 = XF86LaunchB NoSymbol XF86LaunchB
+<span class="kw">keycode</span> 213 = XF86Suspend NoSymbol XF86Suspend
+<span class="kw">keycode</span> 214 = XF86Close NoSymbol XF86Close
+<span class="kw">keycode</span> 215 = XF86AudioPlay NoSymbol XF86AudioPlay
+<span class="kw">keycode</span> 216 = XF86AudioForward NoSymbol XF86AudioForward
+<span class="kw">keycode</span> 217 =
+<span class="kw">keycode</span> 218 = Print NoSymbol Print
+<span class="kw">keycode</span> 219 =
+<span class="kw">keycode</span> 220 = XF86WebCam NoSymbol XF86WebCam
+<span class="kw">keycode</span> 221 =
+<span class="kw">keycode</span> 222 =
+<span class="kw">keycode</span> 223 = XF86Mail NoSymbol XF86Mail
+<span class="kw">keycode</span> 224 = XF86Messenger NoSymbol XF86Messenger
+<span class="kw">keycode</span> 225 = XF86Search NoSymbol XF86Search
+<span class="kw">keycode</span> 226 = XF86Go NoSymbol XF86Go
+<span class="kw">keycode</span> 227 = XF86Finance NoSymbol XF86Finance
+<span class="kw">keycode</span> 228 = XF86Game NoSymbol XF86Game
+<span class="kw">keycode</span> 229 = XF86Shop NoSymbol XF86Shop
+<span class="kw">keycode</span> 230 =
+<span class="kw">keycode</span> 231 = Cancel NoSymbol Cancel
+<span class="kw">keycode</span> 232 = XF86MonBrightnessDown NoSymbol XF86MonBrightnessDown
+<span class="kw">keycode</span> 233 = XF86MonBrightnessUp NoSymbol XF86MonBrightnessUp
+<span class="kw">keycode</span> 234 = XF86AudioMedia NoSymbol XF86AudioMedia
+<span class="kw">keycode</span> 235 = XF86Display NoSymbol XF86Display
+<span class="kw">keycode</span> 236 = XF86KbdLightOnOff NoSymbol XF86KbdLightOnOff
+<span class="kw">keycode</span> 237 = XF86KbdBrightnessDown NoSymbol XF86KbdBrightnessDown
+<span class="kw">keycode</span> 238 = XF86KbdBrightnessUp NoSymbol XF86KbdBrightnessUp
+<span class="kw">keycode</span> 239 = XF86Send NoSymbol XF86Send
+<span class="kw">keycode</span> 240 = XF86Reply NoSymbol XF86Reply
+<span class="kw">keycode</span> 241 = XF86MailForward NoSymbol XF86MailForward
+<span class="kw">keycode</span> 242 = XF86Save NoSymbol XF86Save
+<span class="kw">keycode</span> 243 = XF86Documents NoSymbol XF86Documents
+<span class="kw">keycode</span> 244 = XF86Battery NoSymbol XF86Battery
+<span class="kw">keycode</span> 245 = XF86Bluetooth NoSymbol XF86Bluetooth
+<span class="kw">keycode</span> 246 = XF86WLAN NoSymbol XF86WLAN
+<span class="kw">keycode</span> 247 =
+<span class="kw">keycode</span> 248 =
+<span class="kw">keycode</span> 249 =
+<span class="kw">keycode</span> 250 =
+<span class="kw">keycode</span> 251 =
+<span class="kw">keycode</span> 252 =
+<span class="kw">keycode</span> 253 =
+<span class="kw">keycode</span> 254 =
+<span class="kw">keycode</span> 255 =</code></pre></div>
+<p>add to your <code>.profile</code>:</p>
+<div class="sourceCode"><pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">(</span> <span class="kw">pgrep</span> xcape <span class="kw">||</span> <span class="kw">cd</span> /home/tzx/git/neo_keyboard_layout/neo2015 <span class="kw">&amp;&amp;</span> <span class="kw">./neo.sh</span>; <span class="kw">)</span></code></pre></div>
+<hr />
+<p>Credits</p>
+<ul>
+<li><a href="https://github.com/district10/neo_keyboard_layout">district10/neo_keyboard_layout: &#25105;&#30340;&#38190;&#30424;&#24067;&#23616;&#12290;Neo keyboard layout variants, for Qwerty, Dvorak, Programmer Dvorak users. English ! Not German, and without greek letters.</a></li>
+</ul>
